@@ -26,6 +26,11 @@
 名前：
 
 <%= f.text_field :name %>
+<br>
+
+年齢：
+<%= f.select :age, options_for_select((0..100).map{|num| ["#{num}", num]}), :include_blank => true %>歳
+<br>
 
 内容：
 
