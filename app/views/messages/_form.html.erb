@@ -1,42 +1,27 @@
 <%= form_for(@message) do |f| %>
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @message.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<% if @message.errors.present? %>
+  名前：
+  <%= f.text_field :name %>
+  <br>
 
-  <div class="alert alert-danger">
+  年齢：
+  <%= f.select :age, options_for_select((0..100).map{|num| ["#{num}", num]}), :include_blank => true %>歳
+  <br>
 
-<%= alert %>
-
-    <ul>
-        
-<% @message.errors.full_messages.each do |full_message| %>
-
-      <li>
-          
-<%= full_message %>
-
-      </li>
-      
-<% end %>
-
-    </ul>
-  </div>
-  
-<% end %>
-
-名前：
-
-<%= f.text_field :name %>
-<br>
-
-年齢：
-<%= f.select :age, options_for_select((0..100).map{|num| ["#{num}", num]}), :include_blank => true %>歳
-<br>
-
-内容：
-
-<%= f.text_field :body %>
-
-<%= f.submit class: "btn btn-sm btn-primary" %>
-
+  内容：
+  <%= f.text_field :body %>
+  <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
   
