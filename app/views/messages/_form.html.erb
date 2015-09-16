@@ -12,17 +12,19 @@
     </div>
   <% end %>
 
-  名前：
-  <%= f.text_field :name %>
-  <br>
+  <div class="form-horizontal">
+    名前：
+    <%= f.text_field :name %>
+    <br>
 
-  年齢：
-  <%= f.select :age, options_for_select((0..100).map{|num| ["#{num}", num]}), :include_blank => true %>歳
-  <br>
+    年齢：
+    <%= f.select :age, options_for_select((0..100).map{|num| ["#{num}", num]}), :include_blank => true %>歳
+    <br>
 
-  内容：
-  <%= f.text_field :body %>
-  <br>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+    内容：
+    <%= f.text_field :body %>
+    <br>
+    <%= f.submit class: "btn btn-sm btn-primary" %>
+  </div>
 <% end %>
   
